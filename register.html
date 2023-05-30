@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8">
   <title>Register Page</title>
   <link rel="stylesheet" href="./assets/css/login.css">
 </head>
+
 <body>
   <div class="container">
     <h1>Register</h1>
-    <form onsubmit="return validateForm()">
+    <form onsubmit="return submitForm()" action="php/register.php" method="post">
       <label for="username">Username:</label>
       <input type="text" id="username" name="username" placeholder="Enter your username" required>
 
@@ -16,7 +18,8 @@
       <input type="email" id="email" name="email" placeholder="Enter your email" required>
 
       <label for="tel">Tel:</label>
-      <input type="tel" id="tel" name="tel" placeholder="Enter your tel" pattern="[1]{1}[0-9]{2}[0-9]{4}[0-9]{4}" required>
+      <input type="tel" id="tel" name="tel" placeholder="Enter your tel" pattern="[1]{1}[0-9]{2}[0-9]{4}[0-9]{4}"
+        required>
 
       <label for="address">Address:</label>
       <input type="text" id="address" name="address" placeholder="Enter your address" required>
@@ -25,7 +28,7 @@
       <input type="password" id="password" name="password" placeholder="Enter your password" required>
 
       <label for="confirmPassword">Confirm Password:</label>
-      <input type="password"id="confirmPassword" name="confirmPassword" placeholder="Confirm your password" required>
+      <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm your password" required>
 
       <input type="submit" value="Register">
     </form>
@@ -51,6 +54,72 @@
       }
       return true; // 允许表单提交
     }
+    function submitForm(event) {
+      // function submitForm() {
+      validateForm();
+      event.preventDefault(); // 阻止表单的默认提交行为
+      // 获取表单输入框的值
+      var username = document.getElementById("username").value;
+      var password = document.getElementById("password").value;
+      var email = document.getElementById("email").value;
+      var tel = document.getElementById("tel").value;
+      var address = document.getElementById("address").value;
+      alert(username);
+      alert(password);
+      alert(email);
+      alert(tel);
+      alert(address);
+
+      // 发送 AJAX 请求到后端 PHP 脚本
+      var xhr = new XMLHttpRequest();
+      xhr.open("POST", "./php/register.php", false);//使用同步
+      xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+      xhr.send("username=" + username + "&password=" + password + "&email=" + email + "&tel=" + tel + "&address=" + address);
+      // xhr.send();
+
+      // 检查登录结果
+      xhr.onload = function () {
+        if (xhr.responseText === "success") {
+          let username = document.getElementById("username").value;
+          let password = document.getElementById("password").value;
+          // 将它们保存到 localStorage
+          localStorage.setItem("username", username);
+          localStorage.setItem("password", password);
+          // alert("Login successful!");
+          // 显示登录成功的提示框
+          var successBox = document.getElementById("success-box");
+          successBox.style.display = "block";
+          setTimeout(function () {
+            successBox.style.display = "none";
+          }, 3000);
+          // window.location.href = "http://localhost/OASD/index.html"; // 将用户重定向到主页
+          // window.location.href = "index.html"; 
+          // 将用户重定向到主页
+          location.href = "./login.html";
+          //2s jump
+          setTimeout(function () {
+            window.location.href = "./login.html";
+          }, 2000);
+          // window.location.href = "./login.html";
+          // .代表当前目录
+          return true;
+        } else {
+          // 显示登录失败的提示框
+          var errorBox = document.getElementById("error-box");
+          errorBox.style.display = "block";
+          // alert("Login failed. Please check your username and password.");
+          location.href = "./register.html";
+          //2s jump
+          setTimeout(function () {
+            window.location.href = "./register.html";
+          }, 2000);
+          // window.location.href = "./login.html"; // 将用户重定向到登录
+          return false;
+        }
+      }
+    }
+
   </script>
 </body>
+
 </html>
