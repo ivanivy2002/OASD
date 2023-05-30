@@ -1,0 +1,50 @@
+.carousel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* 垂直居中 */
+  position: relative;
+  width: 500px;
+  height: 300px;
+  overflow: hidden;
+  margin: 0 auto;
+  /* 水平居中 */
+}
+
+.carousel-inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: calc(500px * 5);
+  transition: transform 1.5s ease-in-out;
+  /* 添加过渡效果 */
+}
+
+.carousel-inner img {
+  /* display: inline-block; */
+  float: left;
+  width: 500px;
+  height: 300px;
+}
+
+.prev-btn,
+.next-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border: none;
+  background-color: transparent;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.prev-btn {
+  left: 10px;
+}
+
+.next-btn {
+  right: 10px;
+}

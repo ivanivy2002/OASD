@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="keywords" content="HTML, CSS, XML, Language, Duolingo" />
+    <link rel="shortcut icon" href="./assets/images/duo.jpg" />
+    <title> OASD MALL </title>
+    <!-- <script src="./assets/scripts/js10.js"></script> -->
+    <!-- <input type="button" value="Alert!" id="button1" onclick="alert(1);"> -->
+    <!-- <script type="text/javascript">
+        var btn = document.getElementById("button1") ;
+        var oldHandle = btn.onclick;
+        function newHandle(){
+         alert(2);   
+        }
+        btn.onclick = function() {oldHandle();newHandle();};
+    </script> -->
+
+    <script type="text/javascript">
+        var btn1 = document.getElementById("button1");
+        var form1 = document.getElementById("form1");
+        btn1.onclick = function () {
+            alert(1);
+            form1.submit();
+        };
+        form1.onsubmit = function () {
+            alert(2);
+        };
+    </script>
+</head>
+
+<body>
+    <form id="form1" name="form1">
+        <input type="button" value="button1" id="button1">
+    </form>
+</body>
+
+</html>

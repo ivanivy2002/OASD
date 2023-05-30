@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Login Page</title>
+  <link rel="stylesheet" href="./assets/css/login.css">
+</head>
+
+<body>
+  <div class="container">
+    <h1>Login</h1>
+    <form onsubmit="return submitForm(event)" action="http://localhost:3000/login.php" method="post">
+    <!-- <form onsubmit="return submitForm()" action="http://localhost:3000/login.php" method="post"> -->
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" placeholder="Enter your username" required>
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" placeholder="Enter your password" required>
+
+      <input type="submit" value="Login">
+    </form>
+    <div id="success-box" class="alert-box success" style="display:none;">
+      Login successful!
+    </div>
+    <div id="error-box" class="alert-box error" style="display:none;">
+      Login failed. Please check your username and password.
+    </div>
+    <div class="switch">
+      <span>Haven't got an Account?</span>
+      <button onclick="switchToLogin()">Register</button>
+    </div>
+  </div>
+  <script>
+    function submitForm(event) {
+    // function submitForm() {
+      event.preventDefault(); // 阻止表单的默认提交行为
+      // 获取表单输入框的值
+      var username = document.getElementById("username").value;
+      var password = document.getElementById("password").value;
+
+      // 发送 AJAX 请求到后端 PHP 脚本
+      var xhr = new XMLHttpRequest();
+      xhr.open("POST", "login.php", false);
+      xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+      xhr.send("username=" + username + "&password=" + password);
+
+      // 检查登录结果
+      if (xhr.responseText === "success") {
+        // alert("Login successful!");
+        // 显示登录成功的提示框
+        var successBox = document.getElementById("success-box");
+        successBox.style.display = "block";
+        window.location.href = "http://localhost:3000/index.html"; // 将用户重定向到主页
+        return true;
+      } else {
+        // 显示登录失败的提示框
+        var errorBox = document.getElementById("error-box");
+        errorBox.style.display = "block";
+        // alert("Login failed. Please check your username and password.");
+        // window.location.href = "http://localhost:3000/login.html"; // 将用户重定向到登录
+        return false;
+      }
+    }
+    function switchToLogin() {
+      window.location.href = "register.html";
+    }
+  </script>
+</body>
+
+</html>

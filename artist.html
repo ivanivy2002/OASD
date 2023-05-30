@@ -1,0 +1,78 @@
+<template>
+    <div class="art-market">
+        <div class="art-header">
+            <h1>艺术品交易网站</h1>
+            <p>展示各种不同类型的艺术品，提供购买、出售、拍卖等服务。</p>
+        </div>
+
+        <div class="art-content">
+            <div class="art-list">
+                <h2>热门艺术品</h2>
+                <div class="art-items">
+                    <div class="art-item" v-for="(item, index) in hotItems" :key="index">
+                        <div class="art-img">
+                            <img :src="item.img" alt="" />
+                        </div>
+                        <div class="art-info">
+                            <h3>{{ item.title }}</h3>
+                            <p>{{ item.author }}</p>
+                            <p>{{ item.year }}</p>
+                            <p>{{ item.size }}</p>
+                            <p>{{ item.price }}</p>
+                            <div class="art-btns">
+                                <button @click="buyArt(index)">立即购买</button>
+                                <button @click="addCart(index)">加入购物车</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="art-list">
+                <h2>最新艺术品</h2>
+                <div class="art-items">
+                    <div class="art-item" v-for="(item, index) in newItems" :key="index">
+                        <div class="art-img">
+                            <img :src="item.img" alt="" />
+                        </div>
+                        <div class="art-info">
+                            <h3>{{ item.title }}</h3>
+                            <p>{{ item.author }}</p>
+                            <p>{{ item.year }}</p>
+                            <p>{{ item.size }}</p>
+                            <p>{{ item.price }}</p>
+                            <div class="art-btns">
+                                <button @click="buyArt(index)">立即购买</button>
+                                <button @click="addCart(index)">加入购物车</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="art-footer">
+            <p>联系我们</p>
+            <p>电话:888-8888</p>
+            <p>邮箱:art-market@gmail.com</p>
+        </div>
+    </div>
+</template>
+
+<script>
+    export default {
+        name: "ArtMarket",
+        data() {
+            return {
+                hotItems: [
+                    {
+                        title: "富春山居图",
+                        author: "张择端",
+                        year: "1368年",
+                        size: "25x90cm",
+                        price: "10,000,000",
+                        img: "https://cdn.pixabay.com/photo/2016/03/31/20/51/wall-129
+                    }]
+            }
+        }
+    }  

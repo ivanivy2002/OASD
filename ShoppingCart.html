@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>购物车页面示例</title>
+    <link rel="stylesheet" href="./assets/css/shoppingCart.css" />
+  </head>
+  <body>
+    <div class="cart-container">
+      <h1>购物车</h1>
+      <table>
+        <thead>
+          <tr>
+            <th>商品名称</th>
+            <th>价格</th>
+            <th>数量</th>
+            <th>操作</th>
+          </tr>
+        </thead>
+        <tbody id="cart-items">
+        </tbody>
+      </table>
+      <div class="total-price">
+        <span>总价：</span>
+        <span id="total-price-amount"></span>
+      </div>
+      <button id="checkout-button">结算</button>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

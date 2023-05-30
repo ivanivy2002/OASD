@@ -1,0 +1,49 @@
+body {
+    font-family: Arial, sans-serif;
+  }
+  
+  .cart-container {
+    margin: 20px auto;
+    width: 80%;
+  }
+  
+  h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  
+  thead th {
+    background-color: #eee;
+    text-align: left;
+    padding: 10px;
+  }
+  
+  tbody td {
+    border-bottom: 1px solid #eee;
+    padding: 10px;
+  }
+  
+  .total-price {
+    text-align: right;
+    margin-bottom: 20px;
+  }
+  
+  #checkout-button {
+    display: block;
+    margin: 0 auto;
+    padding: 10px 20px;
+    font-size: 20px;
+    background-color: #008cba;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  

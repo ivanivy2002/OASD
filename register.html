@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Register Page</title>
+  <link rel="stylesheet" href="./assets/css/login.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Register</h1>
+    <form onsubmit="return validateForm()">
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" placeholder="Enter your username" required>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+      <label for="tel">Tel:</label>
+      <input type="tel" id="tel" name="tel" placeholder="Enter your tel" pattern="[1]{1}[0-9]{2}[0-9]{4}[0-9]{4}" required>
+
+      <label for="address">Address:</label>
+      <input type="text" id="address" name="address" placeholder="Enter your address" required>
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" placeholder="Enter your password" required>
+
+      <label for="confirmPassword">Confirm Password:</label>
+      <input type="password"id="confirmPassword" name="confirmPassword" placeholder="Confirm your password" required>
+
+      <input type="submit" value="Register">
+    </form>
+
+    <div class="switch">
+      <span>Already have an account?</span>
+      <button onclick="switchToLogin()">Login</button>
+    </div>
+  </div>
+
+  <script>
+    function switchToLogin() {
+      window.location.href = "login.html";
+    }
+    function validateForm() {
+      // 获取密码输入框和确认密码输入框的值
+      var password = document.getElementById("password").value;
+      var confirmPassword = document.getElementById("confirmPassword").value;
+      // 检查两次密码输入是否一致
+      if (password !== confirmPassword) {
+        alert("Passwords do not match!");
+        return false; // 阻止表单提交
+      }
+      return true; // 允许表单提交
+    }
+  </script>
+</body>
+</html>
