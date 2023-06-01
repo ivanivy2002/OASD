@@ -1,0 +1,25 @@
+/* 固定 height 为 30px */
+video#bg_video {
+    height: 30px;
+    width: 200px;
+}
+
+.video_player {
+    width: 100%;
+}
+
+/* 隐藏视频控件 */
+/* video#bg_video::-webkit-media-controls {
+    display: none !important;
+} */
+
+/* 只显示进度条 */
+/* video#bg_video::--webkit-media-controls-timeline {
+    display: flex !important;
+} */
+
+/* 去除边框,圆角效果 */
+video#bg_video {
+    border: none;
+    border-radius: 0;
+}

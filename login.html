@@ -11,18 +11,21 @@
   <div class="container">
     <h1>Login</h1>
     <!-- <form onsubmit="return submitForm(event)" action="http://localhost/OASD/php/login.php" method="post"> -->
-    <form onsubmit="return submitForm()" action="php/login.php" method="post">
+    <!-- <form onsubmit="return submitForm()" action="php/login.php" method="post"> -->
+      <!--  onclick=" submitForm()" action="php/login.php" method="post" -->
+    <form>
       <label for="username">Username:</label>
       <input type="text" id="username" name="username" placeholder="Enter your username" required>
 
       <label for="password">Password:</label>
       <input type="password" id="password" name="password" placeholder="Enter your password" required>
 
-      <input type="submit" value="Login">
+      <!-- <input type="submit" value="Login"> -->
+      <button onclick="submitForm()" value="Login" class="login_button">Login</button>
     </form>
     <div class="switch">
       <span>Haven't got an Account?</span>
-      <button onclick="switchToLogin()">Register</button>
+      <button onclick="switchToRegister()">Register</button>
     </div>
   </div>
   <div id="success-box" class="alert-box success" style="display:none;">
@@ -32,72 +35,8 @@
     Login failed. Please check your username and password.
   </div>
 
-  <!-- <script>
-    function submitForm(event) {
-      // function submitForm() {
-      event.preventDefault(); // 阻止表单的默认提交行为
-      // 获取表单输入框的值
-      var username = document.getElementById("username").value;
-      var password = document.getElementById("password").value;
-      alert(username);
-      alert(password);
-
-      // 发送 AJAX 请求到后端 PHP 脚本
-      var xhr = new XMLHttpRequest();
-      xhr.open("POST", "./php/login.php", false);//使用同步
-      // xhr.open("POST", "./php/login.php", true); //使用异步
-      // xhr.open("POST", "/OASD/php/login.php", true); //使用异步
-      xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-      xhr.send("username=" + username + "&password=" + password);
-      // xhr.send();
-
-      // 检查登录结果
-      xhr.onload = function () {
-        if (xhr.responseText === "success") {
-          let username = document.getElementById("username").value;
-          let password = document.getElementById("password").value;
-          // 将它们保存到 localStorage
-          localStorage.setItem("username", username);
-          localStorage.setItem("password", password);
-          // alert("Login successful!");
-          // 显示登录成功的提示框
-          var successBox = document.getElementById("success-box");
-          successBox.style.display = "block";
-          setTimeout(function () {
-            successBox.style.display = "none";
-          }, 3000);
-          // window.location.href = "http://localhost/OASD/index.html"; // 将用户重定向到主页
-          // window.location.href = "index.html"; 
-          // 将用户重定向到主页
-          location.href = "./index.html";
-          //2s jump
-          setTimeout(function () {
-            window.location.href = "./index.html";
-          }, 2000);
-          // window.location.href = "./index.html";
-          // .代表当前目录
-          return true;
-        } else {
-          // 显示登录失败的提示框
-          var errorBox = document.getElementById("error-box");
-          errorBox.style.display = "block";
-          // alert("Login failed. Please check your username and password.");
-          location.href = "./login.html";
-          //2s jump
-          setTimeout(function () {
-            window.location.href = "./login.html";
-          }, 2000);
-          // window.location.href = "./login.html"; // 将用户重定向到登录
-          return false;
-        }
-      }
-    }
-    function switchToLogin() {
-      window.location.href = "register.html";
-    }
-  </script> -->
+ <script src="./assets/scripts/login_info.js"></script>
   <script src="./assets/scripts/login.js"></script>
-  <script src="./assets/scripts/login_info.js"></script>
 </body>
 
 </html>
