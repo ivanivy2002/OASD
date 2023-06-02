@@ -1,0 +1,85 @@
+body {
+    background-color: #c5d6f5;
+}
+
+h1 {
+    text-align: center;
+    color: #5c1a82;
+}
+
+#searchContainer {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+#searchBox,
+#searchType,
+#sortType {
+    width: 200px;
+    margin: 0 10px;
+}
+
+#searchButton {
+    margin-left: 10px;
+}
+
+#resultSummary {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #33158b;
+}
+
+#resultContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.resultCard {
+    margin: 10px;
+    border: 1px solid #284bcb;
+    padding: 10px;
+    width: 200px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s;
+    /* Animation */
+}
+
+.resultCard img {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 10px;
+    transition: transform 0.2s;
+    /* Animation */
+}
+
+/* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+/* .resultCard img:hover {
+    transform: scale(1.5);
+
+} */
+
+
+.resultCard h2,
+.resultCard h3,
+.resultCard p {
+    margin: 0;
+    color: #284bcb;
+}
+
+#paginationContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+#prevButton,
+#nextButton {
+    margin: 0 20px;
+}
+
+#pageInfo {
+    color: #284bcb;
+}

@@ -62,14 +62,14 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Art Store</a>
+          <a class="navbar-brand" href="./index.html">Art Store</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-left">
-            <li><a href="#">Home</a></li>
+            <li><a href="./index.html">Home</a></li>
             <!-- <li><a href="./about.html">About</a></li> -->
             <li><a href="./issue.html">Issue</a></li>
             <li><a href="./usercenter.html">User Center</a></li>
@@ -98,9 +98,8 @@
       </div>
     </nav>
   </div>
-  <!-- <h2 id="title"></h2>
-  <img id="image" />
-  <p id="description"></p> -->
+
+
   <div class="container" style="display: flex; align-items: center; justify-content: center;"">
     <div class=" task" draggable="true">
     <div class="tags">
@@ -128,11 +127,14 @@
         </svg>
       </button>
     </div>
-    <img id="details_img" />
-    <h3 class="details_title" id="details_title">TITLE!</h3>
-    <p class="details_description" id="details_description">Lorem ipsum, or lipsum as it is sometimes known, is dummy
-      text used in laying out print, graphic or web
-      designs. </p>
+    <img id="details_img" style="float: left" />
+    <div style="float:right">
+      <h3 class="details_title" id="details_title">TITLE!</h3>
+      <div class="details_info_container"></div>
+      <p class="details_description" id="details_description">Lorem ipsum, or lipsum as it is sometimes known, is dummy
+        text used in laying out print, graphic or web
+        designs. </p>
+    </div>
     <div class="stats">
       <div>
         <div><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
@@ -204,21 +206,20 @@
 
   </div>
   </div>
-
-  <script>
+  <script src="./assets/scripts/details.js"></script>
+  <!-- <script>
     let id = new URL(location.href).searchParams.get("id");
-
     fetch('./php/details.php?id=' + id)
       .then(res => res.json())
       .then(data => {
-
-        img = document.getElementById(' details_img');
-        img.src;
+        const Img = document.getElementById('details_img');
+        Img.src = "./assets/images/works/small/" + data.ImageFileName + ".jpg";
+        Img.alt = data.ImageFileName;
         document.getElementById('details_title').innerText = data.Title;
         document.getElementById('details_description').innerHTML = data.Description;
         // ...
       })  
-  </script>
+  </script> -->
 
 
 </body>

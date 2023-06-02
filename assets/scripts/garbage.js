@@ -1,4 +1,4 @@
- //login.js
+ //card.js
  // var xhr = new XMLHttpRequest();
   // xhr.open('GET', './php/getpaintings.php', true);
   // // xhr.open('GET', '../OASD/php/getpaintings.php', false);
@@ -21,7 +21,7 @@
   //   // const cardData = data;
   // }
 
-//card.js
+//login.js
       // http://localhost/OASD/login.html?username=ivan&password=321
     // 发送 AJAX 请求到后端 PHP 脚本
     // var xhr = new XMLHttpRequest();

@@ -3,7 +3,8 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Login Page</title>
+  <title>Login</title>
+  <link rel="shortcut icon" href="./assets/images/duo.jpg" />
   <link rel="stylesheet" href="./assets/css/login.css">
 </head>
 
@@ -12,16 +13,20 @@
     <h1>Login</h1>
     <!-- <form onsubmit="return submitForm(event)" action="http://localhost/OASD/php/login.php" method="post"> -->
     <!-- <form onsubmit="return submitForm()" action="php/login.php" method="post"> -->
-      <!--  onclick=" submitForm()" action="php/login.php" method="post" -->
-    <form>
+    <!--  onclick=" submitForm()" action="php/login.php" method="post" -->
+    <form onsubmit="return submitForm(event)" action="php/login.php" method="post">
       <label for="username">Username:</label>
       <input type="text" id="username" name="username" placeholder="Enter your username" required>
 
       <label for="password">Password:</label>
       <input type="password" id="password" name="password" placeholder="Enter your password" required>
-
+      <!-- 添加验证码输入框 -->
+      <label for="captcha">Captcha:</label>
+      <input type="text" id="captcha" name="captcha" placeholder="Please input captcha" required>
+      <img src="./php/captcha.php" alt="captcha" id="captchaImage">
       <!-- <input type="submit" value="Login"> -->
-      <button onclick="submitForm()" value="Login" class="login_button">Login</button>
+      <button type="submit" class="login_button">Login</button>
+      <!-- onclick="submitForm(event)" -->
     </form>
     <div class="switch">
       <span>Haven't got an Account?</span>
@@ -34,8 +39,8 @@
   <div id="error-box" class="alert-box error" style="display:none;">
     Login failed. Please check your username and password.
   </div>
-
- <script src="./assets/scripts/login_info.js"></script>
+  <script src="./assets/scripts/fetch.js"></script>
+  <script src="./assets/scripts/login_info.js"></script>
   <script src="./assets/scripts/login.js"></script>
 </body>
 

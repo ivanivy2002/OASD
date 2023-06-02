@@ -37,7 +37,7 @@
                         <div class="pull-right">
                             <!-- links -->
                             <ul class="list-inline">
-                                <li><a href="./login.html"><span class="glyphicon glyphicon-log-out"></span> Logout</a>
+                                <li id="log-out-btn"><a href="./login.html"><span class="glyphicon glyphicon-log-out"></span> Logout</a>
                                 </li>
                                 <li><a href="./usercenter.html"><span class="glyphicon glyphicon-user"></span>
                                         Profile</a></li>
@@ -49,6 +49,7 @@
                 </div>
             </div>
         </div>
+        <script src="./assets/scripts/logout.js"></script>
         <!-- end topHeaderRow -->
         <!-- /.container-fluid -->
     </header>
@@ -65,18 +66,17 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">Art Store</a>
+                    <a class="navbar-brand" href="./index.html">Art Store</a>
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
 
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-left">
-                        <li><a href="#">Home</a></li>
                         <!-- <li><a href="./about.html">About</a></li> -->
                         <li><a href="./issue.html">Issue</a></li>
                         <li><a href="./usercenter.html">User Center</a></li>
-                        <li><a href="./ShoppingList.html">Shopping List</a></li>
+                        <li id="cart-link" style="display: inline;"><a href="./ShoppingCart.html">Cart</a></li>
                         <!-- <li><a href="#">Contact</a></li> -->
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
@@ -102,6 +102,19 @@
         </nav>
     </div>
 
+    <script>
+        // 检查 localStorage 中的 userId，并根据需要显示或隐藏导航栏链接
+        window.onload = function () {
+            var userId = localStorage.getItem('userId');
+            if (!userId) {
+                var cartLink = document.getElementById('cart-link');
+                cartLink.style.display = 'none';
+            }
+            else {
+                cartLink.style.display = 'inline';
+            }
+        }
+    </script>
     <!-- CAROUSEL -->
     <div class="carousel">
         <div class="carousel-inner">
@@ -118,6 +131,7 @@
     <div class="card-container">
 
     </div>
+    <script src="./assets/scripts/fetch.js"></script>
     <script src="./assets/scripts/card.js"></script>
     <script src="./assets/scripts/music.js"></script>
 
@@ -127,6 +141,11 @@
         integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
         crossorigin="anonymous"></script>
 
+
+    <footer>
+        <p>&copy; 2023 Ivan Website. All rights reserved.</p>
+        <p>Designed by Ye Tianyi</p>
+    </footer>
 </body>
 
 </html>
