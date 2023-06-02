@@ -7,12 +7,12 @@
     <meta name="keywords" content="HTML, CSS, XML, Language, Duolingo" />
     <link rel="shortcut icon" href="./assets/images/duo.jpg" />
     <!-- <link rel="stylesheet" type="text/css" href="./assets/css/main.css" /> -->
-    <link rel="stylesheet" type="text/css" href="./assets/css/carousel.css" />
-    <link rel="stylesheet" type="text/css" href="./assets/css/card.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-
+    
+    <link rel="stylesheet" type="text/css" href="./assets/css/carousel.css" />
+    <link rel="stylesheet" type="text/css" href="./assets/css/card.css" />
     <link rel="stylesheet" href="./assets/css/bootstrap.min.css" />
     <link rel="stylesheet" href="./assets/css/bootstrap-theme.css" />
     <link rel="stylesheet" href="./assets/css/music.css" />
@@ -37,7 +37,8 @@
                         <div class="pull-right">
                             <!-- links -->
                             <ul class="list-inline">
-                                <li id="log-out-btn"><a href="./login.html"><span class="glyphicon glyphicon-log-out"></span> Logout</a>
+                                <li id="log-out-btn"><a href="./login.html"><span
+                                            class="glyphicon glyphicon-log-out"></span> Logout</a>
                                 </li>
                                 <li><a href="./usercenter.html"><span class="glyphicon glyphicon-user"></span>
                                         Profile</a></li>
@@ -74,9 +75,10 @@
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-left">
                         <!-- <li><a href="./about.html">About</a></li> -->
-                        <li><a href="./issue.html">Issue</a></li>
-                        <li><a href="./usercenter.html">User Center</a></li>
-                        <li id="cart-link" style="display: inline;"><a href="./ShoppingCart.html">Cart</a></li>
+                        <li class="go-link"><a href="./issue.html"> Issue </a></li>
+                        <li class="go-link"><a href="./usercenter.html"> User Center </a></li>
+                        <li class="go-link"><a href="./shoppingCart.html"> Cart </a></li>
+                        <li class="anti-link"><a href="./login.html"> Login </a></li>
                         <!-- <li><a href="#">Contact</a></li> -->
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
@@ -102,19 +104,6 @@
         </nav>
     </div>
 
-    <script>
-        // 检查 localStorage 中的 userId，并根据需要显示或隐藏导航栏链接
-        window.onload = function () {
-            var userId = localStorage.getItem('userId');
-            if (!userId) {
-                var cartLink = document.getElementById('cart-link');
-                cartLink.style.display = 'none';
-            }
-            else {
-                cartLink.style.display = 'inline';
-            }
-        }
-    </script>
     <!-- CAROUSEL -->
     <div class="carousel">
         <div class="carousel-inner">
@@ -123,14 +112,16 @@
             <img src="./assets/images/fireworks_2.jpg" alt="fireworks_2">
             <img src="./assets/images/rose_1.jpg" alt="rose_1">
         </div>
+        <div class="carousel-dots"></div>
         <button class="prev-btn">&#10094;</button>
         <button class="next-btn">&#10095;</button>
     </div>
     <script src="./assets/scripts/carousel.js"></script>
 
+    <!-- CARD -->
     <div class="card-container">
-
     </div>
+
     <script src="./assets/scripts/fetch.js"></script>
     <script src="./assets/scripts/card.js"></script>
     <script src="./assets/scripts/music.js"></script>
@@ -140,7 +131,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
         integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
         crossorigin="anonymous"></script>
-
 
     <footer>
         <p>&copy; 2023 Ivan Website. All rights reserved.</p>

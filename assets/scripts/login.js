@@ -126,3 +126,8 @@ function submitForm(e) {
 function switchToRegister() {
     window.location.href = "register.html";
 }
+function jumpIndex() {
+    window.location.href = "index.html";
+}
+
+

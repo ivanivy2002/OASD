@@ -29,28 +29,29 @@ function displayResults(artworks) {
         card.className = 'resultCard';
 
         let image = document.createElement('img');
-        image.src = '/PHP/' + artwork.image;
-        image.alt = artwork.name;
+        image.src = './assets/images/works/square-small/' + artwork.ImageFileName + '.jpg';
+        image.alt = artwork.Title;
         card.appendChild(image);
 
         let name = document.createElement('h2');
-        name.textContent = artwork.name;
+        name.textContent = artwork.Title;
         card.appendChild(name);
 
         let author = document.createElement('h3');
-        author.textContent = artwork.author;
+        author.textContent = artwork.Author;
         card.appendChild(author);
 
         let year = document.createElement('p'); // 新增显示年份的元素
-        year.textContent = 'Year: ' + artwork.year;
+        year.textContent = 'Year: ' + artwork.YearOfWork;
         card.appendChild(year);
 
         let price = document.createElement('p');
-        price.textContent = 'Price: ' + artwork.price;
+        
+        price.textContent ="Cost: " + "$" + parseFloat(artwork.Cost).toFixed(2);
         card.appendChild(price);
 
         let visited = document.createElement('p');
-        visited.textContent = 'Visited: ' + artwork.visited;
+        visited.textContent = 'Visited: ' + artwork.Visited;
         card.appendChild(visited);
 
         if (artwork.status == 1) {  // 如果商品已售出，则显示Sold Out
@@ -62,12 +63,12 @@ function displayResults(artworks) {
 
         card.addEventListener('click', function () {
             // Send a request to increase the visit count
-            fetch('../PHP/increaseVisited.php', {
+            fetch('./php/increaseVisited.php', {
                 method: 'POST',
-                body: JSON.stringify({ artworkId: artwork.id })
+                body: JSON.stringify({ PaintingID: artwork.PaintingID })
             });
             // Open the artwork detail page
-            window.location.href = 'artworkDetail.html?id=' + artwork.id;
+            window.location.href = 'details.html?id=' + artwork.PaintingID;
         });
 
         container.appendChild(card);

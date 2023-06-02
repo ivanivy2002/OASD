@@ -1,0 +1,12 @@
+@font-face {
+    /* 引入字体 */
+    font-family: 'Montserrat';
+    src: url('../fonts/Montserrat-Medium.ttf') format('truetype');
+    font-weight: thin;
+    font-style: medium;
+  }
+  
+  body {
+    font-family: 'Montserrat', sans-serif;
+    /* 使用 Montserrat 字体 */
+  }

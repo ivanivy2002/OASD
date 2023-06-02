@@ -28,9 +28,9 @@
       <button type="submit" class="login_button">Login</button>
       <!-- onclick="submitForm(event)" -->
     </form>
-    <div class="switch">
+    <div class="switch" style=" padding-top: 10px;">
       <span>Haven't got an Account?</span>
-      <button onclick="switchToRegister()">Register</button>
+      <button onclick="switchToRegister()" style="background-color:#2dcb9e;">Register</button>
     </div>
   </div>
   <div id="success-box" class="alert-box success" style="display:none;">
@@ -39,9 +39,13 @@
   <div id="error-box" class="alert-box error" style="display:none;">
     Login failed. Please check your username and password.
   </div>
+  <div class="container" style="justify-content: center; align-items: center; display: flex;">
+    <button id="index-btn" onclick="jumpIndex()" style="font-size: 22px;">Browse Website First</button>
+  </div>
   <script src="./assets/scripts/fetch.js"></script>
   <script src="./assets/scripts/login_info.js"></script>
   <script src="./assets/scripts/login.js"></script>
+  <!-- <script src="./assets/scripts/login.js"></script> -->
 </body>
 
 </html>

@@ -1,0 +1,113 @@
+.container {
+    background-color: #95b7f1;
+    font-family: 'Montserrat Thin', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 90vh
+  }
+  
+  .sidebar {
+    width: 200px;
+    background-color: #95b7f1;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 10px;
+  }
+  
+  .sidebar a {
+    display: block;
+    color: #3f138b;
+    text-decoration: none;
+    margin-bottom: 20px;
+  }
+  
+  .sidebar a:hover {
+    text-decoration: underline;
+  }
+  
+  .main {
+    flex-grow: 1;
+    max-width: 800px;
+    /* You can adjust this value as per your requirement */
+    background-color: #95b7f1;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 10px;
+  }
+  
+  .page {
+    display: none;
+  }
+  
+  .page.active {
+    display: block;
+  }
+  
+  h1 {
+    text-align: center;
+    color: #3f138b;
+  }
+  
+  .userInfo {
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  .userInfo label {
+    display: inline-block;
+    margin-bottom: 10px;
+    color: #3f138b;
+  }
+  
+  .userInfo span {
+    display: inline-block;
+    margin-bottom: 10px;
+    color: #621c98;
+    /* Different color for the content inside the username */
+  }
+  
+  .account {
+    margin-top: 50px;
+    text-align: center;
+    color: #3f138b;
+  }
+  
+  .account a {
+    color: #3f138b;
+    text-decoration: none;
+  }
+  
+  .account a:hover {
+    text-decoration: underline;
+  }
+  
+  .recharge {
+    margin-top: 20px;
+    text-align: center;
+    color: #3f138b;
+  }
+  
+  .recharge a {
+    color: #3f138b;
+    text-decoration: none;
+  }
+  
+  .recharge a:hover {
+    text-decoration: underline;
+  }
+  
+  #showUsername {
+    font-size: 30px;
+    color: #0d0670;
+  }
+  
+  #email,
+  #phone,
+  #sex,
+  #birthday,
+  #nationality {
+    font-size: 25px;
+    color: #0d0670;
+  }

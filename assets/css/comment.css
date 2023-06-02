@@ -1,0 +1,51 @@
+.comment {
+    background-color: #fafafa;
+    border: 1px solid #ddd;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+}
+
+.comment .toggle {
+    color: #666;
+    cursor: pointer;
+}
+
+.children {
+    margin-left: 20px;
+}
+
+.children .comment {
+    margin-left: -20px;
+}
+
+#comment-form {
+    width: 400px;
+    margin: 0 auto;
+}
+
+#comment-form input,
+#comment-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+#comment-form input {
+    margin-bottom: 10px;
+}
+
+#comment-form textarea {
+    height: 100px;
+}
+
+#comment-form button {
+    background-color: #eee;
+    color: #333;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+#comment-form button:hover {
+    background-color: #ccc;
+}

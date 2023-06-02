@@ -15,7 +15,7 @@
 
     <link rel="stylesheet" href="./assets/css/bootstrap.min.css" />
     <link rel="stylesheet" href="./assets/css/bootstrap-theme.css" />
-    <link rel="stylesheet" href="./assets/css/music.css" />
+    <!-- <link rel="stylesheet" href="./assets/css/music.css" /> -->
     <link rel="stylesheet" href="./assets/css/video.css" />
     <link rel="stylesheet" href="./assets/css/search.css">
 </head>
@@ -37,7 +37,8 @@
                         <div class="pull-right">
                             <!-- links -->
                             <ul class="list-inline">
-                                <li><a href="./login.html"><span class="glyphicon glyphicon-log-out"></span> Logout</a>
+                                <li id="log-out-btn"><a href="./login.html"><span
+                                            class="glyphicon glyphicon-log-out"></span> Logout</a>
                                 </li>
                                 <li><a href="./usercenter.html"><span class="glyphicon glyphicon-user"></span>
                                         Profile</a></li>
@@ -49,11 +50,11 @@
                 </div>
             </div>
         </div>
+        <script src="./assets/scripts/logout.js"></script>
         <!-- end topHeaderRow -->
-
         <!-- /.container-fluid -->
-
     </header>
+    <!-- /.container-fluid -->
     <div style="display: flex; align-items: flex-start;  flex-wrap: wrap; ">
         <nav class="navbar navbar-default " style="padding-left: 0; width:100%;">
             <div class="container" style="padding-left: 0;">
@@ -73,11 +74,11 @@
 
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-left">
-                        <li><a href="./index.html">Home</a></li>
                         <!-- <li><a href="./about.html">About</a></li> -->
-                        <li><a href="./issue.html">Issue</a></li>
-                        <li><a href="./usercenter.html">User Center</a></li>
-                        <li><a href="./ShoppingList.html">Shopping List</a></li>
+                        <li class="go-link"><a href="./issue.html"> Issue </a></li>
+                        <li class="go-link"><a href="./usercenter.html"> User Center </a></li>
+                        <li class="go-link"><a href="./shoppingCart.html"> Cart </a></li>
+                        <li class="anti-link"><a href="./login.html"> Login </a></li>
                         <!-- <li><a href="#">Contact</a></li> -->
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
@@ -89,20 +90,18 @@
                             </ul>
                         </li>
                     </ul>
-                </div>
 
+                    <form class="navbar-form navbar-right" role="search">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search">
+                        </div>
+                        <button type="submit" class="btn btn-primary" id="search-btn">Submit</button>
+                    </form>
+                </div>
+                <script src="./assets/scripts/jump_search.js"></script>
                 <!-- /.navbar-collapse -->
             </div>
         </nav>
-    </div>
-
-    <div style="justify-content: center; align-items: center;">
-        <form class="navbar-form " role="search" style="justify-content: center; align-items: center;">
-            <div class="form-group">
-                <input type="text" class="form-control" placeholder="Search">
-            </div>
-            <button type="submit" class="btn btn-primary" id="search-btn">Submit</button>
-        </form>
     </div>
 
     <main>
@@ -125,15 +124,28 @@
         <div id="resultSummary"></div>
         <div id="resultContainer"></div>
         <div id="paginationContainer">
-            <button id="prevButton">Previous</button>
+            <button id="prevButton" class="page-btn">
+                <svg height="16" width="16" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 1024 1024">
+                    <path
+                        d="M874.690416 495.52477c0 11.2973-9.168824 20.466124-20.466124 20.466124l-604.773963 0 188.083679 188.083679c7.992021 7.992021 7.992021 20.947078 0 28.939099-4.001127 3.990894-9.240455 5.996574-14.46955 5.996574-5.239328 0-10.478655-1.995447-14.479783-5.996574l-223.00912-223.00912c-3.837398-3.837398-5.996574-9.046027-5.996574-14.46955 0-5.433756 2.159176-10.632151 5.996574-14.46955l223.019353-223.029586c7.992021-7.992021 20.957311-7.992021 28.949332 0 7.992021 8.002254 7.992021 20.957311 0 28.949332l-188.073446 188.073446 604.753497 0C865.521592 475.058646 874.690416 484.217237 874.690416 495.52477z">
+                    </path>
+                </svg>
+                <span>Previous</span>
+            </button>
+            <!-- <button id="prevButton">Previous</button> -->
             <div id="pageInfo"></div>
-            <button id="nextButton">Next</button>
+            <button id="nextButton" class="page-btn">
+                <span>Next</span>
+                <span> &#8594;</span>
+                <!-- <svg height="16" width="16" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 1024 1024"><path d="M874.690416 495.52477c0 11.2973-9.168824 20.466124-20.466124 20.466124l-604.773963 0 188.083679 188.083679c7.992021 7.992021 7.992021 20.947078 0 28.939099-4.001127 3.990894-9.240455 5.996574-14.46955 5.996574-5.239328 0-10.478655-1.995447-14.479783-5.996574l-223.00912-223.00912c-3.837398-3.837398-5.996574-9.046027-5.996574-14.46955 0-5.433756 2.159176-10.632151 5.996574-14.46955l223.019353-223.029586c7.992021-7.992021 20.957311-7.992021 28.949332 0 7.992021 8.002254 7.992021 20.957311 0 28.949332l-188.073446 188.073446 604.753497 0C865.521592 475.058646 874.690416 484.217237 874.690416 495.52477z"></path></svg> -->
+            </button>
         </div>
         <script src="./assets/scripts/search.js"></script>
     </main>
     <footer id="footer"></footer>
 
     <script src="./assets/scripts/music.js"></script>
+    <script src="./assets/scripts/hide.js"></script>
     <!-- <script src="./assets/scripts/card.js">    </script> -->
     <!-- <script>
         let username = localStorage.getItem("username");
@@ -145,6 +157,12 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
         integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
         crossorigin="anonymous"></script>
+
+
+    <footer>
+        <p>&copy; 2023 Ivan Website. All rights reserved.</p>
+        <p>Designed by Ye Tianyi</p>
+    </footer>
 </body>
 
 </html>

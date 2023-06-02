@@ -5,13 +5,14 @@
   <meta charset="utf-8">
   <title>Register</title>
   <link rel="shortcut icon" href="./assets/images/duo.jpg" />
-  <link rel="stylesheet" href="./assets/css/login.css">
+  <!-- <link rel="stylesheet" href="./assets/css/register.css"> -->
+  <link rel="stylesheet" href="./assets/css/register.css">
 </head>
 
 <body>
   <div class="container">
     <h1>Register</h1>
-    <form onsubmit="return submitForm()" action="php/register.php" method="post">
+    <form id="registerForm" onsubmit="return submitForm()" action="php/register.php" method="post">
       <label for="username">Username:</label>
       <input type="text" id="username" name="username" placeholder="Enter your username" required>
 
@@ -21,11 +22,54 @@
       <label for="tel">Tel:</label>
       <input type="tel" id="tel" name="tel" placeholder="Enter your tel" pattern="[1]{1}[0-9]{2}[0-9]{4}[0-9]{4}"
         required>
-
+      <label for="sex">Gender:</label>
+      <select id="sex" name="sex" type="sex" class="select-style">
+        <!-- <option value="">-- Please select --</option> -->
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+        <option value="other">Other</option>
+      </select>
+      <label for="birthday">Birthday:</label>
+      <input type="date" id="birthday" name="birthday">
+      <label for="nationality">Nationality:</label>
+      <select id="nationality" name="nationality" type="nationality" class="select-style">
+        <!-- <option value="">-- Please select --</option> -->
+        <option value="China">China🇨🇳</option>
+        <option value="America">America🇺🇸</option>
+        <option value="Australia">Australia🇦🇺</option>
+        <option value="Brazil">Brazil🇧🇷</option>
+        <option value="Canada">Canada🇨🇦</option>
+        <option value="Egypt">Egypt🇪🇬</option>
+        <option value="England">England🏴󠁧󠁢󠁥󠁮󠁧󠁿</option>
+        <option value="France">France🇫🇷</option>
+        <option value="Germany">Germany🇩🇪</option>
+        <option value="Greece">Greece🇬🇷</option>
+        <option value="India">India🇮🇳</option>
+        <option value="Indonesia">Indonesia🇮🇩</option>
+        <option value="Iran">Iran🇮🇷</option>
+        <option value="Italy">Italy🇮🇹</option>
+        <option value="Japan">Japan🇯🇵</option>
+        <option value="Korea">Korea🇰🇷</option>
+        <option value="Mexico">Mexico🇲🇽</option>
+        <option value="Nigeria">Nigeria🇳🇬</option>
+        <option value="Pakistan">Pakistan🇵🇰</option>
+        <option value="Philippines">Philippines🇵🇭</option>
+        <option value="Poland">Poland🇵🇱</option>
+        <option value="Portugal">Portugal🇵🇹</option>
+        <option value="Russia">Russia🇷🇺</option>
+        <option value="Saudi Arabia">Saudi Arabia🇸🇦</option>
+        <option value="South Africa">South Africa🇿🇦</option>
+        <option value="Spain">Spain🇪🇸</option>
+        <option value="Thailand">Thailand🇹🇭</option>
+        <option value="Turkey">Turkey🇹🇷</option>
+        <option value="Ukraine">Ukraine🇺🇦</option>
+        <option value="United Kingdom">United Kingdom🇬🇧</option>
+        <option value="Vietnam">Vietnam🇻🇳</option>
+      </select>
       <label for="address">Address:</label>
       <input type="text" id="address" name="address" placeholder="Enter your address" required>
 
-      <label for="password">Password:</label>
+      <label for="password"><strong>Password:</strong></label>
       <input type="password" id="password" name="password" placeholder="Enter your password" required>
 
       <label for="confirmPassword">Confirm Password:</label>
@@ -65,6 +109,7 @@
       var email = document.getElementById("email").value;
       var tel = document.getElementById("tel").value;
       var address = document.getElementById("address").value;
+
       alert(username);
       alert(password);
       alert(email);
@@ -119,8 +164,9 @@
         }
       }
     }
-
   </script>
+
+  <script src="./assets/scripts/register.js"></script>
 </body>
 
 </html>

@@ -1,4 +1,10 @@
 <?php
+header("Access-Control-Allow-Origin: *");
+header("Content-Type: application/json; charset=UTF-8");
+// Start a session (if one has not already been started)
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 require_once "./request.php";
 // print_r($_POST);
 $servername = "localhost:3306";
@@ -60,13 +66,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       // 验证密码
       // $hashedPassword = hashPassword($password, $user['salt']);
       // $hashedPassword = $password;
-      if ($password == $user['password']) {
+      
+      if (password_verify($password, $user['password'])) {
         //登陆成功
+        $_SESSION['username'] = $username;
         $response = [
           'success' => true,
           'message' => '登陆成功!',
           'data' => $user['userId']
         ];
+        $_SESSION['userId'] = $user['userId'];
+        
       } else {
         // 登录失败
         $errors[] = "密码错误";
