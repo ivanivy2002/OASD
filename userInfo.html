@@ -1,12 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-US">
 
 <head>
   <meta charset="UTF-8">
   <title>User Info</title>
-  <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
+  <!-- <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico"> -->
+  <link rel="shortcut icon" href="./assets/images/duo.jpg" />
   <link rel="stylesheet" type="text/css" href="./assets/css/global.css">
   <link rel="stylesheet" type="text/css" href="./assets/css/userInfo.css">
+  <link rel="stylesheet" type="text/css" href="./assets/css/main.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="./assets/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="./assets/css/bootstrap-theme.css" />
+  <!-- <link rel="stylesheet" href="./assets/css/music.css" /> -->
+  <link rel="stylesheet" href="./assets/css/video.css" />
+  <link rel="stylesheet" href="./assets/css/editInfo.css" />
+  <link rel="stylesheet" href="./assets/css/stack.css" />
   <!-- <link rel="stylesheet" type="text/css" href="./assets/css/account.css"> -->
   <!-- <link rel="stylesheet" type="text/css" href="./assets/css/login.css"> -->
   <style>
@@ -29,9 +41,87 @@
 </head>
 
 <body>
-  <header id="header">
+  <!-- HEADER -->
+  <header class="index_header" style="display: flex; align-items: flex-start;  flex-wrap: wrap; width:100%;">
+    <div class="topHeaderRow" style="width:100%;">
+      <div class="container" style="width:100%;">
+        <div class="row" style="width:100%;">
+          <div class="col-md-8">
+            <div class="video_player">
+              <video id="bg_video" controls autoplay loop>
+                <source src="./assets/audio/Riot-Far_Out.mp3" type="audio/mpeg">
+              </video>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="pull-right">
+              <!-- links -->
+              <ul class="list-inline">
+                <li id="log-out-btn"><a href="./login.html"><span class="glyphicon glyphicon-log-out"></span> Logout</a>
+                </li>
+                <li><a href="./userInfo.html"><span class="glyphicon glyphicon-user"></span>
+                    Profile</a></li>
+                <li><a href="./fav.html"><span class="glyphicon glyphicon-star"></span> Favorites</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="./assets/scripts/logout.js"></script>
+    <!-- end topHeaderRow -->
+    <!-- /.container-fluid -->
   </header>
-  <div class="container">
+  <!-- /.container-fluid -->
+  <div style="display: flex; align-items: flex-start;  flex-wrap: wrap; ">
+    <nav class="navbar navbar-default " style="padding-left: 0; width:100%;">
+      <div class="container" style="padding-left: 0;">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header" style="padding-left: 0;">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+            data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="./index.html">Art Store</a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-left">
+            <!-- <li><a href="./about.html">About</a></li> -->
+            <li class="go-link"><a href="./issue.html"> Issue </a></li>
+            <!-- <li class="go-link"><a href="./userInfo.html"> User Center </a></li> -->
+            <li class="go-link"><a href="./shoppingCart.html"> Cart </a></li>
+            <li class="anti-link"><a href="./login.html"> Login </a></li>
+            <!-- <li><a href="#">Contact</a></li> -->
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                aria-expanded="false">Browse <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Genres</a></li>
+                <li><a href="#">Artists</a></li>
+                <li><a href="#">Works</a></li>
+              </ul>
+            </li>
+          </ul>
+
+          <form class="navbar-form navbar-right" role="search">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Search">
+            </div>
+            <button type="submit" class="btn btn-primary" id="search-btn">Submit</button>
+          </form>
+        </div>
+        <script src="./assets/scripts/jump_search.js"></script>
+        <!-- /.navbar-collapse -->
+      </div>
+    </nav>
+  </div>
+
+  <div class="info-container">
     <div class="sidebar">
       <a href="#" data-page="userInfo">User Info</a>
       <a href="#" data-page="account">Account Balance</a>
@@ -40,8 +130,19 @@
       <a href="#" data-page="editInfo">Edit Info</a>
       <a href="#" data-page="changePassword">Change Password</a>
     </div>
-    <div class="main">
-      <div id="userInfo" class="page active">
+    <!-- STACK -->
+    <!-- <form class="form">
+      <ul class="wrapper">
+        <li style="--i:4;"><input class="input" type="text" placeholder="Name" required=""></li>
+        <li style="--i:3;"><input class="input" placeholder="tel number" required="" name="tel"></li>
+        <li style="--i:2;"><input class="input" type="email" placeholder="E-mail" required="" name="email"></li>
+        <button class="stack-btn" style="--i:1;">Submit</button>
+      </ul>
+    </form> -->
+
+
+    <div class="info-main">
+      <div id="userInfo" class="info-page active">
         <h1> User Info </h1>
         <div class="userInfo">
           <div class="username">
@@ -52,9 +153,9 @@
             <label for="email">Email: </label>
             <span id="email" name="email"></span>
           </div>
-          <div class="phone">
-            <label for="phone">Phone: </label>
-            <span id="phone" name="phone"></span>
+          <div class="tel">
+            <label for="tel">tel: </label>
+            <span id="tel" name="tel"></span>
           </div>
           <div class="sex">
             <label for="sex">Sex: </label>
@@ -72,7 +173,7 @@
         </div>
       </div>
 
-      <div id="account" class="page">
+      <div id="account" class="info-page">
         <h1>Account Balance</h1>
         <div class="accountInfo">
           <label for="balance">Balance:</label>
@@ -85,11 +186,11 @@
         </div>
       </div>
 
-      <div id="orders" class="page">
+      <div id="orders" class="info-page">
         <h1>Orders</h1>
         <!-- TODO: Your Orders Code Here -->
       </div>
-      <div id="products" class="page">
+      <div id="products" class="info-page">
         <h1>My Products</h1>
         <!-- TODO: Your My Products Code Here -->
         <table id="product-table">
@@ -97,9 +198,9 @@
         </table>
       </div>
 
-      <div id="editInfo" class="page">
-        <h1>Edit Info</h1>
-        <form id="registerForm" onsubmit="return validatePhoneNumber()" method="post">
+      <div id="editInfo" class="info-page">
+        <h1 class="edit-h1">Edit Info</h1>
+        <form id="registerForm" onsubmit="return validatePhoneNumber()" method="post" class="edit-form">
           <label for="regUsername"><strong>Username:</strong></label>
           <input type="text" id="regUsername" name="regUsername" required>
           <!-- <label for="regPassword"><strong>Password:</strong></label>
@@ -109,11 +210,11 @@
           </div>
           <span id="password-strength-text"></span>
           <input type="password" id="confPassword" name="confPassword" placeholder="Confirm password" required> -->
-          <h2>The following are optional choices</h2>
+          <!-- <h2>The following are optional choices</h2> -->
           <label for="email">Email:</label>
           <input type="email" id="regEmail" name="email">
-          <label for="phone">Phone:</label>
-          <input type="text" id="regPhone" name="phone" onblur="checkPhoneNumber()">
+          <label for="tel">Tel:</label>
+          <input type="text" id="regPhone" name="tel" onblur="checkPhoneNumber()">
           <label for="sex">Sex:</label>
           <select id="regSex" name="sex" class="select-style">
             <option value="">-- Please select --</option>
@@ -161,23 +262,25 @@
           </select>
           <input type="submit" value="Edit" class="edit-button" id="edit-button" name="register">
         </form>
-        <script src="../js/editUserInfo.js"></script>
-        <script src="../js/editArtwork.js"></script>
+        <script src="./assets/scripts/editUserInfo.js"></script>
+        <script src="./assets/scripts/editArtwork.js"></script>
       </div>
 
-      <div id="changePassword" class="page">
+      <div id="changePassword" class="info-page">
         <h1>Change Password</h1>
       </div>
     </div>
   </div>
 
-  <script src="../js/switchUserSideBar.js"></script>
+  <script src="./assets/scripts/switchUserSideBar.js"></script>
   <!-- <script src="../js/showUserInfo.js"></script> -->
-  <footer id="footer">
+  <footer>
+    <p>&copy; 2023 Ivan Website. All rights reserved.</p>
+    <p>Designed by Ye Tianyi</p>
   </footer>
 </body>
-<script src="../js/showUserInfo.js"></script>
-<script src="../js/header.js"></script>
+<script src="./assets/scripts/showUserInfo.js"></script>
+<!-- <script src="../js/header.js"></script> -->
 <script>
   window.addEventListener('DOMContentLoaded', (event) => {
     fetch('./php/getAccountInfo.php')
@@ -237,7 +340,7 @@
       const table = document.createElement('table');
       // Add Header Row
       const headerRow = document.createElement('tr');
-      const headers = ['id', 'name', 'author', 'description', 'year', 'genre', 'size', 'price', 'status', 'image', ''];
+      const headers = ['PaintingID', 'Title', 'Author', 'Description', 'YearOfWork',  'Size', 'Cost', 'status', 'ImageFileName', ''];
       headers.forEach((header) => {
         const th = document.createElement('th');
         th.textContent = header;
@@ -280,7 +383,7 @@
         editBtn.addEventListener('click', () => {
           // Save the artwork to sessionStorage and redirect to the edit page
           sessionStorage.setItem('editArtwork', JSON.stringify(artwork));
-          location.href = '../HTML/editArtwork.html';
+          location.href = './editArtwork.html';
         });
         editTd.appendChild(editBtn);
         tr.appendChild(editTd);
@@ -299,7 +402,7 @@
 <script>
   // 加载页面时调用
   window.onload = function () {
-    loadHeader();
+    // loadHeader();
     showUserInfo();
     showAccount();
     showUserInfoForEdit();

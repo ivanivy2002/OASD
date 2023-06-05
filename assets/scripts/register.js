@@ -14,7 +14,7 @@ function updatePasswordStrength() {
 
 function getPasswordStrengthText(strength) {
   if (strength < 40) {
-    return "Weak - Passwords should include numbers, upper and lower case letters, and special characters.";
+    return "Weak - Password should include numbers, upper and lower case letters, and special characters.";
   } else if (strength < 60) {
     return "Fair";
   } else if (strength < 80) {
@@ -50,35 +50,10 @@ function calculatePasswordStrength(password) {
 passwordInput.addEventListener('input', updatePasswordStrength);
 
 window.onload = function () {
-    var loginForm = document.getElementById('loginForm');
+    
     var registerForm = document.getElementById('registerForm');
     // 登录表单的提交
-    loginForm.onsubmit = function (e) {
-      e.preventDefault();
-  
-      var xhr = new XMLHttpRequest();
-      var formData = new FormData(loginForm);
-      formData.append('login', true);  // 添加登录请求的标识符
-  
-      xhr.open('POST', './php/register.php', true);
-      xhr.onload = function () {
-        if (xhr.status === 200) {
-          // 登录成功后的操作
-          console.log("Login response: ", xhr.responseText);
-          if (xhr.responseText === "Login successful.") {
-            alert("Login successful.");
-            // 跳转到主页
-            window.location.href = "../HTML/index.html";
-          } else {
-            alert(xhr.responseText);
-          }
-        } else {
-          // 登录失败的操作
-          console.log("Login failed.");
-        }
-      };
-      xhr.send(formData);
-    };
+
     // 注册表单的提交
     registerForm.onsubmit = function (e) {
       e.preventDefault();
@@ -87,7 +62,7 @@ window.onload = function () {
       var formData = new FormData(registerForm);
       formData.append('register', true);  // 添加注册请求的标识符
   
-      xhr.open('POST', './php/login.php', true);
+      xhr.open('POST', './php/register.php', true);
       xhr.onload = function () {
         if (xhr.status === 200) {
           // 注册成功后的操作
@@ -102,7 +77,8 @@ window.onload = function () {
           // }
           alert(xhr.responseText);
           console.log("Registration response: ", xhr.responseText);
-          switchForm(); //切换到登录表单
+          // switchForm(); //切换到登录表单
+          window.location.href="./login.html"
   
         } else {
           // 注册失败的操作

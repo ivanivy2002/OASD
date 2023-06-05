@@ -3,11 +3,9 @@
 
 <head>
   <title>Art Gallery</title>
-  <!-- <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico"> -->
   <link rel="shortcut icon" href="./assets/images/duo.jpg" />
   <link rel="stylesheet" type="text/css" href="./assets/css/global.css">
   <link rel="stylesheet" type="text/css" href="./assets/css/issue.css">
-  <!-- <link rel="stylesheet" href="./assets/css/stack.css" /> -->
   <style>
     body {
       margin: 0;
@@ -16,11 +14,12 @@
 </head>
 
 <body>
-  <!-- <iframe src="audioPlayer.html" frameborder="0" width="0" height="0"></iframe> -->
   <header id="header"></header>
   <main>
-    <h2>Issue Artwork</h2>
+    <h2>Edit Artwork</h2>
     <form id="issueForm" enctype="multipart/form-data">
+      <label for="id" style="display: none;">ID:</label>
+      <input type="text" id="id" name="id" style="display: none;">
       <label for="name">Name:</label>
       <input type="text" id="name" name="name" required>
       <label for="author">Author:</label>
@@ -43,8 +42,34 @@
   </main>
 
   <footer id="footer"></footer>
-  <script src="../js/issue.js"></script>
-  <script src="../js/header.js"></script>
+  <script>
+    // 获取存储在sessionStorage中的数据
+    const artwork = JSON.parse(sessionStorage.getItem('editArtwork'));
+
+    // 获取表单中每个输入字段的引用
+    const idInput = document.getElementById('id');
+    const nameInput = document.getElementById('name');
+    const authorInput = document.getElementById('author');
+    const descriptionInput = document.getElementById('description');
+    const yearInput = document.getElementById('year');
+    const genreInput = document.getElementById('genre');
+    const sizeInput = document.getElementById('size');
+    const priceInput = document.getElementById('price');
+    const imageInput = document.getElementById('image');
+
+    // 将sessionStorage中存储的数据分配给相应的字段
+    idInput.value = artwork.id;
+    nameInput.value = artwork.name;
+    authorInput.value = artwork.author;
+    descriptionInput.value = artwork.description;
+    yearInput.value = artwork.year;
+    genreInput.value = artwork.genre;
+    sizeInput.value = artwork.size;
+    priceInput.value = artwork.price;
+    imageInput.value = artwork.image;
+  </script>
+  <script src="./assets/scripts/editArtwork.js"></script>
+  <script src="./assets/scripts/header.js"></script>
   <script>
     window.onload = function () {
       loadHeader();

@@ -1,13 +1,35 @@
-.container {
+/* .info-container {
     background-color: #95b7f1;
     font-family: 'Montserrat Thin', sans-serif;
     display: flex;
     justify-content: center;
     align-items: flex-start;
     min-height: 90vh
-  }
-  
-  .sidebar {
+  } */
+
+.info-container {
+  background-color: #303F9F;
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.info-container h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.info-container p {
+  font-size: 1.5rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+/* .sidebar {
     width: 200px;
     background-color: #95b7f1;
     padding: 20px;
@@ -24,90 +46,135 @@
   
   .sidebar a:hover {
     text-decoration: underline;
-  }
-  
-  .main {
-    flex-grow: 1;
-    max-width: 800px;
-    /* You can adjust this value as per your requirement */
-    background-color: #95b7f1;
-    padding: 20px;
-    border-radius: 10px;
-    margin: 10px;
-  }
-  
-  .page {
-    display: none;
-  }
-  
-  .page.active {
-    display: block;
-  }
-  
-  h1 {
-    text-align: center;
-    color: #3f138b;
-  }
-  
-  .userInfo {
-    margin: 0 auto;
-    padding: 20px;
-    border-radius: 10px;
-  }
-  
-  .userInfo label {
-    display: inline-block;
-    margin-bottom: 10px;
-    color: #3f138b;
-  }
-  
-  .userInfo span {
-    display: inline-block;
-    margin-bottom: 10px;
-    color: #621c98;
-    /* Different color for the content inside the username */
-  }
-  
-  .account {
-    margin-top: 50px;
-    text-align: center;
-    color: #3f138b;
-  }
-  
-  .account a {
-    color: #3f138b;
-    text-decoration: none;
-  }
-  
-  .account a:hover {
-    text-decoration: underline;
-  }
-  
-  .recharge {
-    margin-top: 20px;
-    text-align: center;
-    color: #3f138b;
-  }
-  
-  .recharge a {
-    color: #3f138b;
-    text-decoration: none;
-  }
-  
-  .recharge a:hover {
-    text-decoration: underline;
-  }
-  
-  #showUsername {
-    font-size: 30px;
-    color: #0d0670;
-  }
-  
-  #email,
-  #phone,
-  #sex,
-  #birthday,
-  #nationality {
-    font-size: 25px;
-    color: #0d0670;
-  }
+  } */
+.sidebar {
+  background-color: #f1f1f1;
+  padding: 20px;
+  width: 200px;
+}
+
+.sidebar a {
+  display: block;
+  color: #333;
+  font-size: 16px;
+  padding: 10px 0;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.sidebar a:hover {
+  background-color: #ddd;
+}
+
+.info-main {
+  flex-grow: 1;
+  max-width: 800px;
+  /* You can adjust this value as per your requirement */
+  background-color: #95b7f1;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 10px;
+}
+
+.info-page {
+  display: none;
+}
+
+.info-page.active {
+  display: block;
+}
+
+h1 {
+  text-align: center;
+  color: #3f138b;
+}
+
+.userInfo {
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.userInfo label {
+  display: inline-block;
+  margin-bottom: 10px;
+  color: #3f138b;
+}
+
+.userInfo span {
+  display: inline-block;
+  margin-bottom: 10px;
+  color: #621c98;
+  /* Different color for the content inside the username */
+}
+
+.account {
+  margin-top: 50px;
+  text-align: center;
+  color: #3f138b;
+}
+
+.account a {
+  color: #3f138b;
+  text-decoration: none;
+}
+
+.account a:hover {
+  text-decoration: underline;
+}
+
+.recharge {
+  margin-top: 20px;
+  text-align: center;
+  color: #3f138b;
+}
+
+.recharge a {
+  color: #3f138b;
+  text-decoration: none;
+}
+
+.recharge a:hover {
+  text-decoration: underline;
+}
+
+#showUsername {
+  font-size: 30px;
+  color: #0d0670;
+}
+
+#email,
+#tel,
+#sex,
+#birthday,
+#nationality {
+  font-size: 25px;
+  color: #0d0670;
+}
+
+
+input[type="text"],
+input[type="password"],
+input[type="tel"],
+input[type="number"],
+input[type="email"] ,
+input[type="date"] 
+{
+  padding: 10px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px #888888;
+  color: #0d0670;
+}
+
+
+select[type="sex"] ,
+select[type="nationality"]{
+  padding: 10px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px #888888;
+  color: #0d0670;
+}

@@ -1,11 +1,16 @@
 // 获取评论列表数据
 function getComments() {
-  // 发送 AJAX 请求获取评论数据
-  // 这里可以使用 jQuery 或其他库来简化 AJAX 请求的处理
-  $.get('./php/comment.php', function (data) {
-    // 成功获取评论数据后，渲染评论列表
+
+  fetch('./php/comment.php').then(() => {
+    // getComments();
     renderComments(data);
   });
+  // 发送 AJAX 请求获取评论数据
+  // 这里可以使用 jQuery 或其他库来简化 AJAX 请求的处理
+  // $.get('./php/comment.php', function (data) {
+  //   // 成功获取评论数据后，渲染评论列表
+  //   renderComments(data);
+  // });
 }
 
 // 渲染评论列表
@@ -101,3 +106,4 @@ document.getElementById('comment-form').addEventListener('submit', function (e) 
 //     document.querySelectorAll('.toggle').forEach(toggleChildren)
 //   })
 // document.getElementById('comment-form').addEventListener('submit', submitComment)
+

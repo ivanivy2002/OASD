@@ -120,7 +120,34 @@ function submitForm(e) {
     //     .catch(error => {
     //         console.error('Fetch error:', error);
     //     });
+//
+// var loginForm = document.getElementById('loginForm');
+// loginForm.onsubmit = function (e) {
+//     e.preventDefault();
 
+//     var xhr = new XMLHttpRequest();
+//     var formData = new FormData(loginForm);
+//     formData.append('login', true);  // 添加登录请求的标识符
+
+//     xhr.open('POST', './php/register.php', true);
+//     xhr.onload = function () {
+//       if (xhr.status === 200) {
+//         // 登录成功后的操作
+//         console.log("Login response: ", xhr.responseText);
+//         if (xhr.responseText === "Login successful.") {
+//           alert("Login successful.");
+//           // 跳转到主页
+//           window.location.href = "../HTML/index.html";
+//         } else {
+//           alert(xhr.responseText);
+//         }
+//       } else {
+//         // 登录失败的操作
+//         console.log("Login failed.");
+//       }
+//     };
+//     xhr.send(formData);
+//   };
 
 }
 function switchToRegister() {
