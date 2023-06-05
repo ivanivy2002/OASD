@@ -6,6 +6,15 @@
   <link rel="shortcut icon" href="./assets/images/duo.jpg" />
   <link rel="stylesheet" type="text/css" href="./assets/css/global.css">
   <link rel="stylesheet" type="text/css" href="./assets/css/issue.css">
+  
+  <link rel="stylesheet" type="text/css" href="./assets/css/main.css">
+  <link rel="stylesheet" type="text/css" href="./assets/css/video.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="./assets/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="./assets/css/bootstrap-theme.css" />
   <style>
     body {
       margin: 0;
@@ -14,7 +23,87 @@
 </head>
 
 <body>
-  <header id="header"></header>
+  <!-- <header id="header"></header> -->
+  <!-- HEADER -->
+  <header class="index_header" style="display: flex; align-items: flex-start;  flex-wrap: wrap; width:100%;">
+    <div class="topHeaderRow" style="width:100%;">
+      <div class="container" style="width:100%;">
+        <div class="row" style="width:100%;">
+          <div class="col-md-8">
+            <div class="video_player">
+              <video id="bg_video" controls autoplay loop>
+                <source src="./assets/audio/Riot-Far_Out.mp3" type="audio/mpeg">
+              </video>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="pull-right">
+              <!-- links -->
+              <ul class="list-inline">
+                <li id="log-out-btn"><a href="./login.html"><span class="glyphicon glyphicon-log-out"></span> Logout</a>
+                </li>
+                <li><a href="./userInfo.html"><span class="glyphicon glyphicon-user"></span>
+                    Profile</a></li>
+                <li><a href="./fav.html"><span class="glyphicon glyphicon-star"></span> Favorites</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="./assets/scripts/logout.js"></script>
+    <!-- end topHeaderRow -->
+    <!-- /.container-fluid -->
+  </header>
+  <!-- /.container-fluid -->
+  <div style="display: flex; align-items: flex-start;  flex-wrap: wrap; ">
+    <nav class="navbar navbar-default " style="padding-left: 0; width:100%;">
+      <div class="container" style="padding-left: 0;">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header" style="padding-left: 0;">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+            data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="./index.html">Art Store</a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-left">
+            <!-- <li><a href="./about.html">About</a></li> -->
+            <li class="go-link"><a href="./issue.html"> Issue </a></li>
+            <!-- <li class="go-link"><a href="./userInfo.html"> User Center </a></li> -->
+            <li class="go-link"><a href="./shoppingCart.html"> Cart </a></li>
+            <li class="anti-link"><a href="./login.html"> Login </a></li>
+            <!-- <li><a href="#">Contact</a></li> -->
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                aria-expanded="false">Browse <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Genres</a></li>
+                <li><a href="#">Artists</a></li>
+                <li><a href="#">Works</a></li>
+              </ul>
+            </li>
+          </ul>
+
+          <form class="navbar-form navbar-right" role="search">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Search">
+            </div>
+            <button type="submit" class="btn btn-primary" id="search-btn">Submit</button>
+          </form>
+        </div>
+        <script src="./assets/scripts/jump_search.js"></script>
+        <!-- /.navbar-collapse -->
+      </div>
+    </nav>
+  </div>
+
   <main>
     <h2>Edit Artwork</h2>
     <form id="issueForm" enctype="multipart/form-data">
@@ -41,7 +130,13 @@
     </form>
   </main>
 
-  <footer id="footer"></footer>
+
+  <footer>
+    <p>&copy; 2023 Ivan Website. All rights reserved.</p>
+    <p>Designed by Ye Tianyi</p>
+  </footer>
+
+  <!-- <footer id="footer"></footer> -->
   <script>
     // 获取存储在sessionStorage中的数据
     const artwork = JSON.parse(sessionStorage.getItem('editArtwork'));
@@ -69,7 +164,7 @@
     imageInput.value = artwork.image;
   </script>
   <script src="./assets/scripts/editArtwork.js"></script>
-  <script src="./assets/scripts/header.js"></script>
+  <!-- <script src="./assets/scripts/header.js"></script> -->
   <script>
     window.onload = function () {
       loadHeader();

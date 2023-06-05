@@ -31,9 +31,10 @@ function renderCards(cardData) {
     // description.textContent = card.Description;
     description.innerHTML = card.Description;
     const ArtistElement = document.createElement("p");
-    fetch('./php/artists.php?id=' + card.ArtistID).then(res => res.json()).then(artist => {
-      ArtistElement.textContent = artist.FirstName + " " + artist.LastName;
-    });
+    ArtistElement.textContent = card.Author;
+    // fetch('./php/artists.php?id=' + card.ArtistID).then(res => res.json()).then(artist => {
+    //   ArtistElement.textContent = artist.FirstName + " " + artist.LastName;
+    // });
     //description cut
     // let text = description.innerText;
     // if (text.length > maxLength) {
